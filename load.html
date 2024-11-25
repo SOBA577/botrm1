@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подключение</title>
+    <style>
+        @font-face {
+            font-family: 'Intro';
+            src: url('intro.otf') format('opentype');
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Intro', sans-serif;
+            background: linear-gradient(135deg, #000428, #004e92); /* Градиент */
+            color: white;
+            overflow: hidden;
+        }
+
+        .container {
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(10, 10, 25, 0.9); /* Полупрозрачный фон */
+            box-shadow: 
+                0 0 30px rgba(72, 84, 255, 0.8),
+                0 0 60px rgba(144, 50, 250, 0.6);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .loading-container {
+            width: 80%;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .loading-bar {
+            width: 0%;
+            height: 100%;
+            background-color: #ff8c00; /* Оранжевая полоска */
+            border-radius: 10px;
+            animation: loading 5s linear forwards; /* Анимация загрузки */
+        }
+
+        @keyframes loading {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        .connection-text {
+            font-size: 1.8em;
+            animation: blinking 1.2s infinite; /* Мигание текста */
+            text-align: center;
+        }
+
+        @keyframes blinking {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Полоска загрузки -->
+        <div class="loading-container">
+            <div class="loading-bar"></div>
+        </div>
+        <!-- Текст подключения -->
+        <div class="connection-text">Подключение...</div>
+    </div>
+
+    <script>
+        // Устанавливаем таймер на 5 секунд для завершения загрузки
+        setTimeout(() => {
+            // Переход на menu.html
+            window.location.href = "menu.html"; // Проверьте путь к файлу
+        }, 3000); // Время совпадает с длительностью анимации загрузки
+    </script>
+</body>
+</html>
